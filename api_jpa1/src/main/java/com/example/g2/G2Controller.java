@@ -26,7 +26,19 @@ public class G2Controller {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST , value="/g2")
-	public G2 addG2(@RequestBody String id){
-		return g2Service.getG2(id);
+	public void addG2(@RequestBody G2 g2){
+		g2Service.addG2(g2);
 	}
+	
+	@RequestMapping(method=RequestMethod.PUT , value="/g2/{id}")
+	public void updateG2(@RequestBody G2 g2, @PathVariable String id){
+		g2Service.updateG2(id, g2);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE , value="/g2/{id}")
+	public void deleteG2(@PathVariable String id){
+		g2Service.deleteG2(id);
+	}
+	
+	
 }
